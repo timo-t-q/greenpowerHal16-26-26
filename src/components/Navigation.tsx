@@ -8,6 +8,7 @@ export function Navigation() {
     { name: 'Domov', href: '#domov' },
     { name: 'O nás', href: '#o-nas' },
     { name: 'Čo robíme', href: '#co-robime' },
+    { name: 'Náš tím', href: '#nas-tim' },
     { name: 'Čo sa učíme', href: '#co-sa-ucime' },
     { name: 'Cesta', href: '#cesta' },
     { name: 'Kontakt', href: '#kontakt' },
