@@ -22,11 +22,13 @@ export function Team() {
       name: "Peto",
       role: "Webový vývojár",
       initials: "P",
+      githubUrl: "https://github.com",
     },
     {
       name: "Timo",
       role: "Webový vývojár",
       initials: "T",
+      githubUrl: "https://github.com/timo-t-q",
     },
   ];
 
@@ -52,7 +54,20 @@ export function Team() {
                     {member.initials}
                   </AvatarFallback>
                 </Avatar>
-                <CardTitle className="text-xl">{member.name}</CardTitle>
+                <CardTitle className="text-xl">
+                  {member.githubUrl ? (
+                    <a
+                      href={member.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-600 hover:underline transition-colors"
+                    >
+                      {member.name}
+                    </a>
+                  ) : (
+                    member.name
+                  )}
+                </CardTitle>
                 <CardDescription className="text-blue-600 font-medium mt-1">
                   {member.role}
                 </CardDescription>
