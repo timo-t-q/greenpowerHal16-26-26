@@ -10,3 +10,4 @@
   Run `npm run dev` to start the development server.
   
 je to ai read me lebo stale zabudam robit dokumentaciiiu
+nejde mi vercel
