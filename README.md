@@ -1,12 +1,22 @@
+# Portfólio projektu Greenpower – HAGAP
 
-  # Student Formula Presentation Website
+Webové portfólio tímu **HAGAP** (SPŠE Hálova 16) pre súťaž Greenpower 2026.
 
-  This is a code bundle for Student Formula Presentation Website. The original project is available at https://www.figma.com/design/QSLCXqFQdO9QAL6gvErgfa/Student-Formula-Presentation-Website.
+## Štruktúra portfólia
 
-  ## Running the code
+1. **Predstavenie tímu a ciele** – zloženie tímu, roly, osobné očakávania
+2. **Plánovanie projektu** – odkazy na plánovače, finálne ciele
+3. **Priebeh projektu** – 10 fáz od formovania tímu po telemetriu
+4. **Greenpower Engineering** – 3 projekty (eChook, volant, HaloBoard)
+5. **Záverečná reflexia** – tímová aj individuálna reflexia
 
-  Run `npm i` to install the dependencies.
+## Spustenie
 
-  Run `npm run dev` to start the development server.
-  
-Happy coding!
+```bash
+npm install
+npm run dev
+```
+
+## Technológie
+
+React, TypeScript, Vite, Tailwind CSS, shadcn/ui
