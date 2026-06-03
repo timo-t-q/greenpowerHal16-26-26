@@ -6,11 +6,12 @@ export function Navigation() {
 
   const navItems = [
     { name: 'Domov', href: '#domov' },
-    { name: 'O nás', href: '#o-nas' },
-    { name: 'Čo robíme', href: '#co-robime' },
+    { name: 'Tím', href: '#tim' },
     { name: 'Náš tím', href: '#nas-tim' },
-    { name: 'Čo sa učíme', href: '#co-sa-ucime' },
-    { name: 'Cesta', href: '#cesta' },
+    { name: 'Plánovanie', href: '#planovanie' },
+    { name: 'Priebeh', href: '#priebeh' },
+    { name: 'Projekty', href: '#greenpower' },
+    { name: 'Reflexia', href: '#reflexia' },
     { name: 'Kontakt', href: '#kontakt' },
   ];
 

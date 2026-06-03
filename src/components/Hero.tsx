@@ -26,7 +26,7 @@ export function Hero() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#o-nas"
+              href="#tim"
               className="px-8 py-3 bg-gradient-to-r from-purple-400 to-blue-400 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               Zistiť viac
@@ -43,7 +43,7 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <a
-        href="#o-nas"
+        href="#tim"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white transition-colors animate-bounce"
       >
         <ChevronDown size={32} />

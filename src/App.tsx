@@ -1,9 +1,10 @@
 import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { WhatWeDo } from './components/WhatWeDo';
+import { TeamIntro } from './components/TeamIntro';
 import { Team } from './components/Team';
-import { Learning } from './components/Learning';
-import { Journey } from './components/Journey';
+import { Planning } from './components/Planning';
+import { Progress } from './components/Progress';
+import { GreenpowerProjects } from './components/GreenpowerProjects';
+import { Reflection } from './components/Reflection';
 import { Contact } from './components/Contact';
 import { Navigation } from './components/Navigation';
 
@@ -12,11 +13,12 @@ export default function App() {
     <div className="min-h-screen bg-white">
       <Navigation />
       <Hero />
-      <About />
-      <WhatWeDo />
+      <TeamIntro />
       <Team />
-      <Learning />
-      <Journey />
+      <Planning />
+      <Progress />
+      <GreenpowerProjects />
+      <Reflection />
       <Contact />
     </div>
   );
