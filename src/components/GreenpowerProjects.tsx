@@ -79,12 +79,12 @@ export function GreenpowerProjects() {
         </div>
 
         <Tabs defaultValue="projekt1" className="w-full">
-          <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent mb-8">
+          <TabsList className="flex flex-wrap justify-center gap-3 bg-transparent border-none shadow-none p-0 h-auto w-full">
             {projectData.map((project) => (
               <TabsTrigger
                 key={project.id}
                 value={project.id}
-                className="flex items-center gap-2 px-6 py-3 bg-white/70 backdrop-blur-sm rounded-full shadow-sm border border-white/40 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300"
+                className="flex items-center gap-2 px-6 py-3 rounded-full shadow-sm border transition-all duration-300 data-[state=active]:!bg-gradient-to-r data-[state=active]:!from-purple-500 data-[state=active]:!to-blue-500 data-[state=active]:!text-white data-[state=active]:!shadow-lg data-[state=active]:!border-transparent bg-white/70 backdrop-blur-sm border-white/40 text-gray-700 hover:shadow-md"
               >
                 <project.icon size={18} />
                 {project.title.split(" – ")[0]}

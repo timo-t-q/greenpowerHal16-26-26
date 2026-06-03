@@ -113,14 +113,14 @@ export function Reflection() {
           </div>
 
           <Tabs defaultValue="0" className="w-full">
-            <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent mb-8">
+            <TabsList className="flex flex-wrap justify-center gap-3 bg-transparent border-none shadow-none p-0 h-auto w-full mb-8">
               {individualReflections.map((member, index) => (
                 <TabsTrigger
                   key={index}
                   value={String(index)}
-                  className="flex items-center gap-2 px-6 py-3 bg-white/70 backdrop-blur-sm rounded-full shadow-sm border border-white/40 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300"
+                  className="flex items-center gap-2 px-6 py-3 rounded-full shadow-sm border transition-all duration-300 data-[state=active]:!bg-gradient-to-r data-[state=active]:!from-purple-500 data-[state=active]:!to-blue-500 data-[state=active]:!text-white data-[state=active]:!shadow-lg data-[state=active]:!border-transparent bg-white/70 backdrop-blur-sm border-white/40 text-gray-700 hover:shadow-md"
                 >
-                  <div className="w-6 h-6 bg-purple-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                  <div className="w-6 h-6 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
                     {member.initials}
                   </div>
                   {member.name}
