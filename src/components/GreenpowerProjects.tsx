@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { BarChart3, Gamepad2, Monitor, ImageIcon } from "lucide-react"
+import { ImageWithFallback } from "./figma/ImageWithFallback"
 
 const projectData = [
   {
@@ -8,6 +9,7 @@ const projectData = [
     icon: BarChart3,
     title: "Projekt 1 – Zber a vyhodnotenie dát",
     type: "Riešenie založené na meraní dát a aplikácii teórie",
+    photos: [{ src: "echook.jpg", caption: "Riadiaca doska telemetrie eChook" }],
     focus: {
       params: "Zlepšenie parametrov: monitorovanie rýchlosti, stavu batérie a ďalších prevádzkových veličín v reálnom čase. Chceme získať presné dáta z jazdy pre lepšie pochopenie správania formuly na trati.",
       theory: "Riešenie sa opiera o poznatky z fyziky (meranie rýchlosti, elektrického prúdu a napätia), informatiky (spracovanie a prenos dát) a elektrotechniky (zapojenie senzorov a mikrokontrolérov). Využívame princípy telemetrie – bezdrôtového prenosu údajov z vozidla do domovskej stanice.",
@@ -189,11 +191,23 @@ export function GreenpowerProjects() {
               <h4 className="text-xl font-bold text-gray-900">Prílohy</h4>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center text-gray-400 text-sm">
+              {(project.photos ?? []).map((photo, i) => (
+                <figure key={`photo-${i}`} className="aspect-square rounded-2xl overflow-hidden shadow-sm relative group">
+                  <ImageWithFallback
+                    src={photo.src}
+                    alt={photo.caption}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-xs p-2">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
+              ))}
+              {Array.from({ length: Math.max(0, 4 - (project.photos?.length ?? 0)) }).map((_, i) => (
+                <div key={`ph-${i}`} className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center text-gray-400 text-sm">
                   <div className="text-center">
                     <ImageIcon className="mx-auto mb-2" size={32} />
-                    <span>Foto {i}</span>
+                    <span>Foto {i + 1 + (project.photos?.length ?? 0)}</span>
                   </div>
                 </div>
               ))}

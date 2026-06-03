@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui/card"
-import { Avatar, AvatarFallback } from "./ui/avatar"
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
 import { Target } from "lucide-react"
 
@@ -10,6 +10,7 @@ const teamMembers = [
     field: "Informačné a sieťové technológie",
     role: "Team líder",
     initials: "JM",
+    photo: "janko.jpg",
     responsibilities: "Koordinácia tímu, organizácia stretnutí, rozdelenie úloh, dohľad nad priebehom projektu",
     expectations: "Do projektu GreenPower ma prilákal najmä zaujímavý koncept stavby a pretekania s vlastnou formulou, keďže som predtým absolvoval pár jázd na motokárach v Dlhej. Mojím primárnym cieľom však bolo vyskúšať si rolu team leadera. Chcel som zistiť, čo všetko obnáša manažovanie tímu, naučiť sa lepšie organizovať prácu ostatných a otestovať svoje líderské zručnosti na reálnom projekte.",
   },
@@ -28,6 +29,7 @@ const teamMembers = [
     field: "Informačné a sieťové technológie",
     role: "Manažér",
     initials: "BZ",
+    photo: "benji.jpg",
     responsibilities: "Manažment projektu, koordinácia montáže a mechanických prác, dohľad nad kvalitou",
     expectations: "Zapojil som sa, lebo ma baví práca s elektronikou a chcel som si vyskúšať reálny projekt. Tešil som sa na praktické využitie teórie namiesto sedenia v lavici. Očakával som viac fantázie a voľnosti pri návrhoch, nie len presný návod, čo máme spraviť.",
   },
@@ -86,6 +88,7 @@ export function TeamIntro() {
             <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm">
               <CardHeader className="text-center pt-10 pb-6">
                 <Avatar className="w-24 h-24 mx-auto mb-4 border-2 border-purple-200">
+                  {member.photo && <AvatarImage src={member.photo} alt={member.name} className="object-cover" />}
                   <AvatarFallback className="text-2xl bg-gradient-to-br from-purple-400 to-blue-400 text-white font-semibold">
                     {member.initials}
                   </AvatarFallback>
