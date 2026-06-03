@@ -17,7 +17,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl py-20">
         <div className="bg-white/70 backdrop-blur-md rounded-[3rem] p-8 md:p-12 border border-white/40 shadow-2xl">
-          <img src="logo192.png" alt="" className='mx-auto'/>
+          <img src="logo192.png" alt="Logo HAGAP" width={96} height={96} className="mx-auto mb-6" />
           <h1 className="text-gray-800 text-5xl md:text-7xl mb-6">
             Hálova Greenpower team
           </h1>

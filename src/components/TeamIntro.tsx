@@ -97,8 +97,8 @@ export function TeamIntro() {
                 <CardDescription className="text-purple-600 font-medium">{member.role}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-gray-600 px-6 pb-10">
-                <p><span className="font-medium text-gray-800">Ročník:</span> {member.year}</p>
-                <p><span className="font-medium text-gray-800">Odbor:</span> {member.field}</p>
+                {member.year && <p><span className="font-medium text-gray-800">Ročník:</span> {member.year}</p>}
+                {member.field && <p><span className="font-medium text-gray-800">Odbor:</span> {member.field}</p>}
                 <p><span className="font-medium text-gray-800">Zodpovedný za:</span> {member.responsibilities}</p>
               </CardContent>
             </Card>

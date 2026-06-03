@@ -20,7 +20,7 @@ There is **no test, lint, or type-check step** — no `tsconfig.json` exists, an
 
 ## Architecture
 
-**Stack:** React 18 + TypeScript, Vite 6 (`@vitejs/plugin-react-swc`), Tailwind CSS v4 styling, shadcn/ui + Radix primitives, `lucide-react` icons.
+**Stack:** React 18 + TypeScript, Vite 6 (`@vitejs/plugin-react-swc`), Tailwind CSS v4 (compiled via `@tailwindcss/vite`), shadcn/ui + Radix primitives, `lucide-react` icons. The package is ESM (`"type": "module"` in `package.json`).
 
 **Page composition:** `src/main.tsx` mounts `src/App.tsx`, which renders one section component per page region in fixed order: `Navigation`, `Hero`, `TeamIntro`, `Planning`, `Progress`, `GreenpowerProjects`, `Reflection`, `Contact`. Each section lives in `src/components/<Name>.tsx`, is self-contained, and **hardcodes its own content** (no data files, no CMS, no props passed from `App`). To change page content, edit the relevant section component directly.
 
@@ -28,14 +28,11 @@ There is **no test, lint, or type-check step** — no `tsconfig.json` exists, an
 
 **Images:** Use `src/components/figma/ImageWithFallback.tsx` for remote/Unsplash images (it renders a placeholder on load error). Local assets (team photos, logos) live in `public/` and are referenced by root-relative path (e.g. `src="logo192.png"`).
 
-## Styling — important gotcha
+## Styling
 
-Tailwind is **not installed and not compiled at build time** (it is not in `package.json`, and there is no `tailwind.config`, no `postcss.config`, and no Tailwind Vite plugin).
+Tailwind v4 is compiled at build/dev time by the `@tailwindcss/vite` plugin (see `vite.config.ts`). The single source stylesheet is **`src/styles/globals.css`**, imported by `main.tsx`; it starts with `@import "tailwindcss";` and holds the design tokens (`:root`/`.dark`), `@theme inline`, and `@layer base`. Any valid Tailwind utility used in a `.tsx` file is generated automatically — just add classes normally.
 
-- The only stylesheet loaded is `src/index.css`, imported by `main.tsx`. It is a **committed, pre-compiled Tailwind v4 build artifact** (~1600 lines, with the design tokens inlined). Do not hand-edit it.
-- `src/styles/globals.css` is the original Tailwind v4 **source** (design tokens in `:root`/`.dark`, `@theme inline`, `@layer base`). It is **not imported anywhere** and has no effect on the running site.
-
-Practical consequence: adding a Tailwind utility class only works if that class already exists in the compiled `index.css`. New/unused utilities and edits to `globals.css` will silently not apply. Prefer composing from utilities already present; for genuinely new styling, add plain CSS or inline styles rather than expecting Tailwind to compile.
+> Historical note: this project originally shipped a pre-compiled `src/index.css` artifact with Tailwind *not* installed, because `globals.css` was missing its `@import "tailwindcss";` line and so could never compile. That artifact was missing ~110 of the utility classes the components actually used (e.g. `inline-flex`, `gap-3`, `py-24`, `from-purple-500`), which silently broke spacing, list bullets, and active button states. The fix was to install `tailwindcss` + `@tailwindcss/vite`, add the missing `@import`, wire the plugin, and point `main.tsx` at `globals.css`. `src/index.css` has been deleted — don't reintroduce a hand-compiled stylesheet.
 
 ## Conventions
 

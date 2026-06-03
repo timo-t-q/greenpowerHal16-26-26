@@ -19,7 +19,7 @@ export function Navigation() {
       <div className="bg-white/70 backdrop-blur-lg rounded-full shadow-lg px-6 border border-white/20">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <img src="logo192.png" width={48}></img>
+            <img src="logo192.png" width={48} alt="Logo HAGAP" />
           </div>
 
           {/* Desktop Navigation */}
@@ -37,7 +37,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden align-center flex">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-blue-600"
