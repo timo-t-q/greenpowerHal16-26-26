@@ -1,5 +1,5 @@
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
 import { Users, User, Lightbulb, Trophy, Target, RefreshCw } from "lucide-react"
 
 const teamReflection = {
@@ -37,6 +37,10 @@ const individualReflections = [
 ]
 
 export function Reflection() {
+  const [active, setActive] = useState("0")
+
+  const member = individualReflections[Number(active)]
+
   return (
     <section id="reflexia" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-6xl mx-auto">
@@ -112,50 +116,48 @@ export function Reflection() {
             <h3 className="text-2xl font-bold text-gray-900">Časť B – Individuálna reflexia členov tímu</h3>
           </div>
 
-          <Tabs defaultValue="0" className="w-full">
-            <TabsList className="flex flex-wrap justify-center gap-3 bg-transparent border-none shadow-none p-0 h-auto w-full mb-8">
-              {individualReflections.map((member, index) => (
-                <TabsTrigger
-                  key={index}
-                  value={String(index)}
-                  className="flex items-center gap-2 px-6 py-3 rounded-full shadow-sm border transition-all duration-300 data-[state=active]:!bg-gradient-to-r data-[state=active]:!from-purple-500 data-[state=active]:!to-blue-500 data-[state=active]:!text-white data-[state=active]:!shadow-lg data-[state=active]:!border-transparent bg-white/70 backdrop-blur-sm border-white/40 text-gray-700 hover:shadow-md"
-                >
-                  <div className="w-6 h-6 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                    {member.initials}
-                  </div>
-                  {member.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            {individualReflections.map((member, index) => (
-              <TabsContent key={index} value={String(index)}>
-                <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm max-w-3xl mx-auto">
-                  <CardHeader className="text-center pb-2">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-3">
-                      {member.initials}
-                    </div>
-                    <CardTitle className="text-xl text-gray-900">{member.name}</CardTitle>
-                    <p className="text-purple-600 font-medium text-sm">{member.role}</p>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-5">
-                      <p className="font-semibold text-purple-700 mb-2">Čo som sa naučil</p>
-                      <p className="text-gray-700">{member.learnings}</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-5">
-                      <p className="font-semibold text-orange-700 mb-2">Najväčšia výzva</p>
-                      <p className="text-gray-700">{member.challenge}</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-5">
-                      <p className="font-semibold text-green-700 mb-2">Čo si odnášam do budúcnosti</p>
-                      <p className="text-gray-700">{member.takeaway}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {individualReflections.map((m, index) => (
+              <button
+                key={index}
+                onClick={() => setActive(String(index))}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full shadow-sm border transition-all duration-300 hover:shadow-md ${
+                  active === String(index)
+                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg border-transparent"
+                    : "bg-white/70 backdrop-blur-sm border-white/40 text-gray-700"
+                }`}
+              >
+                <div className="w-6 h-6 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                  {m.initials}
+                </div>
+                {m.name}
+              </button>
             ))}
-          </Tabs>
+          </div>
+
+          <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm max-w-3xl mx-auto">
+            <CardHeader className="text-center pb-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-3">
+                {member.initials}
+              </div>
+              <CardTitle className="text-xl text-gray-900">{member.name}</CardTitle>
+              <p className="text-purple-600 font-medium text-sm">{member.role}</p>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-5">
+                <p className="font-semibold text-purple-700 mb-2">Čo som sa naučil</p>
+                <p className="text-gray-700">{member.learnings}</p>
+              </div>
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-5">
+                <p className="font-semibold text-orange-700 mb-2">Najväčšia výzva</p>
+                <p className="text-gray-700">{member.challenge}</p>
+              </div>
+              <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-5">
+                <p className="font-semibold text-green-700 mb-2">Čo si odnášam do budúcnosti</p>
+                <p className="text-gray-700">{member.takeaway}</p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

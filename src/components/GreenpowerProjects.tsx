@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { BarChart3, Gamepad2, Monitor, ImageIcon } from "lucide-react"
 
@@ -66,6 +66,10 @@ const projectData = [
 ]
 
 export function GreenpowerProjects() {
+  const [active, setActive] = useState("projekt1")
+
+  const project = projectData.find((p) => p.id === active)!
+
   return (
     <section id="greenpower" className="py-20 px-4 bg-gradient-to-b from-purple-50 to-blue-50">
       <div className="max-w-6xl mx-auto">
@@ -78,127 +82,125 @@ export function GreenpowerProjects() {
           </p>
         </div>
 
-        <Tabs defaultValue="projekt1" className="w-full">
-          <TabsList className="flex flex-wrap justify-center gap-3 bg-transparent border-none shadow-none p-0 h-auto w-full">
-            {projectData.map((project) => (
-              <TabsTrigger
-                key={project.id}
-                value={project.id}
-                className="flex items-center gap-2 px-6 py-3 rounded-full shadow-sm border transition-all duration-300 data-[state=active]:!bg-gradient-to-r data-[state=active]:!from-purple-500 data-[state=active]:!to-blue-500 data-[state=active]:!text-white data-[state=active]:!shadow-lg data-[state=active]:!border-transparent bg-white/70 backdrop-blur-sm border-white/40 text-gray-700 hover:shadow-md"
-              >
-                <project.icon size={18} />
-                {project.title.split(" – ")[0]}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          {projectData.map((project) => (
-            <TabsContent key={project.id} value={project.id}>
-              <div className="space-y-6">
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/40">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl flex items-center justify-center">
-                      <project.icon className="text-white" size={28} />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
-                      <p className="text-purple-600 text-sm font-medium">{project.type}</p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <Card className="border-none shadow-sm bg-gradient-to-br from-purple-50 to-white">
-                      <CardHeader>
-                        <CardTitle className="text-lg text-purple-700">Zameranie a zvolené parametre</CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-3 text-sm text-gray-700">
-                        <p>{project.focus.params}</p>
-                        {"theory" in project.focus && (
-                          <div className="bg-white/60 rounded-xl p-3 mt-2">
-                            <p className="font-medium text-purple-600 mb-1">Teória zo školských predmetov:</p>
-                            <p>{project.focus.theory}</p>
-                          </div>
-                        )}
-                        {"criteria" in project.focus && (
-                          <div className="bg-white/60 rounded-xl p-3 mt-2">
-                            <p className="font-medium text-purple-600 mb-1">Kritériá úspechu:</p>
-                            <p className="text-sm text-gray-700">{project.focus.criteria}</p>
-                          </div>
-                        )}
-                      </CardContent>
-                    </Card>
-
-                    <Card className="border-none shadow-sm bg-gradient-to-br from-blue-50 to-white">
-                      <CardHeader>
-                        <CardTitle className="text-lg text-blue-700">Stručný opis riešenia</CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-3 text-sm text-gray-700">
-                        <p>{project.solution.description}</p>
-                        {"change" in project.solution && project.solution.change && (
-                          <div className="bg-white/60 rounded-xl p-3">
-                            <p className="font-medium text-blue-600 mb-1">Hlavná zmena oproti pôvodnému stavu:</p>
-                            <p>{project.solution.change}</p>
-                          </div>
-                        )}
-                        {"testing" in project.solution && project.solution.testing && (
-                          <div className="bg-white/60 rounded-xl p-3">
-                            <p className="font-medium text-blue-600 mb-1">Testovanie:</p>
-                            <p>{project.solution.testing}</p>
-                          </div>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </div>
-
-                  <Card className="border-none shadow-sm bg-gradient-to-br from-green-50 to-white">
-                    <CardHeader>
-                      <CardTitle className="text-lg text-green-700">Zdôvodnenie riešenia a jeho prínosu</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-3 text-sm text-gray-700">
-                      <p><span className="font-medium text-green-600">Prínos:</span> {project.justification.benefit}</p>
-                      <p><span className="font-medium text-green-600">Zdôvodnenie:</span> {project.justification.evidence}</p>
-                      {project.justification.limitations && (
-                        <div className="bg-white/60 rounded-xl p-3">
-                          <p className="font-medium text-amber-600 mb-1">Obmedzenia riešenia:</p>
-                          <p>{project.justification.limitations}</p>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-
-                  <div className="mt-6 text-center">
-                    <a
-                      href={project.solution.protocol}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-400 to-blue-400 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-sm"
-                    >
-                      Otvoriť protokol k projektu (Google Drive)
-                    </a>
-                  </div>
-                </div>
-
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/40">
-                  <div className="flex items-center gap-3 mb-6">
-                    <ImageIcon className="text-purple-600" size={24} />
-                    <h4 className="text-xl font-bold text-gray-900">Prílohy</h4>
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center text-gray-400 text-sm">
-                        <div className="text-center">
-                          <ImageIcon className="mx-auto mb-2" size={32} />
-                          <span>Foto {i}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-gray-400 text-sm text-center mt-4">Sem budú doplnené fotografie, grafy a obrázky z procesu</p>
-                </div>
-              </div>
-            </TabsContent>
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {projectData.map((p) => (
+            <button
+              key={p.id}
+              onClick={() => setActive(p.id)}
+              className={`flex items-center gap-2 px-6 py-3 rounded-full shadow-sm border transition-all duration-300 hover:shadow-md ${
+                active === p.id
+                  ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg border-transparent"
+                  : "bg-white/70 backdrop-blur-sm border-white/40 text-gray-700"
+              }`}
+            >
+              <p.icon size={18} />
+              {p.title.split(" – ")[0]}
+            </button>
           ))}
-        </Tabs>
+        </div>
+
+        <div className="space-y-6">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/40">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl flex items-center justify-center">
+                <project.icon className="text-white" size={28} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
+                <p className="text-purple-600 text-sm font-medium">{project.type}</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <Card className="border-none shadow-sm bg-gradient-to-br from-purple-50 to-white">
+                <CardHeader>
+                  <CardTitle className="text-lg text-purple-700">Zameranie a zvolené parametre</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm text-gray-700">
+                  <p>{project.focus.params}</p>
+                  {"theory" in project.focus && (
+                    <div className="bg-white/60 rounded-xl p-3 mt-2">
+                      <p className="font-medium text-purple-600 mb-1">Teória zo školských predmetov:</p>
+                      <p>{project.focus.theory}</p>
+                    </div>
+                  )}
+                  {"criteria" in project.focus && (
+                    <div className="bg-white/60 rounded-xl p-3 mt-2">
+                      <p className="font-medium text-purple-600 mb-1">Kritériá úspechu:</p>
+                      <p className="text-sm text-gray-700">{project.focus.criteria}</p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-sm bg-gradient-to-br from-blue-50 to-white">
+                <CardHeader>
+                  <CardTitle className="text-lg text-blue-700">Stručný opis riešenia</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm text-gray-700">
+                  <p>{project.solution.description}</p>
+                  {"change" in project.solution && project.solution.change && (
+                    <div className="bg-white/60 rounded-xl p-3">
+                      <p className="font-medium text-blue-600 mb-1">Hlavná zmena oproti pôvodnému stavu:</p>
+                      <p>{project.solution.change}</p>
+                    </div>
+                  )}
+                  {"testing" in project.solution && project.solution.testing && (
+                    <div className="bg-white/60 rounded-xl p-3">
+                      <p className="font-medium text-blue-600 mb-1">Testovanie:</p>
+                      <p>{project.solution.testing}</p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="border-none shadow-sm bg-gradient-to-br from-green-50 to-white">
+              <CardHeader>
+                <CardTitle className="text-lg text-green-700">Zdôvodnenie riešenia a jeho prínosu</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-gray-700">
+                <p><span className="font-medium text-green-600">Prínos:</span> {project.justification.benefit}</p>
+                <p><span className="font-medium text-green-600">Zdôvodnenie:</span> {project.justification.evidence}</p>
+                {project.justification.limitations && (
+                  <div className="bg-white/60 rounded-xl p-3">
+                    <p className="font-medium text-amber-600 mb-1">Obmedzenia riešenia:</p>
+                    <p>{project.justification.limitations}</p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            <div className="mt-6 text-center">
+              <a
+                href={project.solution.protocol}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-400 to-blue-400 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-sm"
+              >
+                Otvoriť protokol k projektu (Google Drive)
+              </a>
+            </div>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/40">
+            <div className="flex items-center gap-3 mb-6">
+              <ImageIcon className="text-purple-600" size={24} />
+              <h4 className="text-xl font-bold text-gray-900">Prílohy</h4>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center text-gray-400 text-sm">
+                  <div className="text-center">
+                    <ImageIcon className="mx-auto mb-2" size={32} />
+                    <span>Foto {i}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-gray-400 text-sm text-center mt-4">Sem budú doplnené fotografie, grafy a obrázky z procesu</p>
+          </div>
+        </div>
       </div>
     </section>
   )
