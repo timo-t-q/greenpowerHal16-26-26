@@ -7,7 +7,6 @@ export function Navigation() {
   const navItems = [
     { name: 'Domov', href: '#domov' },
     { name: 'Tím', href: '#tim' },
-    { name: 'Náš tím', href: '#nas-tim' },
     { name: 'Plánovanie', href: '#planovanie' },
     { name: 'Priebeh', href: '#priebeh' },
     { name: 'Projekty', href: '#greenpower' },

@@ -79,11 +79,11 @@ export function Planning() {
                 <h4 className="text-lg font-bold text-gray-900 mb-4">{project.project}</h4>
                 <ol className="space-y-2">
                   {project.goals.map((goal, gIndex) => (
-                    <li key={gIndex} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="w-6 h-6 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5">
+                    <li key={gIndex} className="flex items-start gap-3 text-sm text-gray-700">
+                      <span className="w-7 h-7 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5 shadow-md shadow-purple-200">
                         {gIndex + 1}
                       </span>
-                      {goal}
+                      <span className="pt-0.5">{goal}</span>
                     </li>
                   ))}
                 </ol>

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui/card"
 import { Avatar, AvatarFallback } from "./ui/avatar"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
-import { Users, Target } from "lucide-react"
+import { Target } from "lucide-react"
 
 const teamMembers = [
   {
@@ -31,6 +31,42 @@ const teamMembers = [
     responsibilities: "Manažment projektu, koordinácia montáže a mechanických prác, dohľad nad kvalitou",
     expectations: "Zapojil som sa, lebo ma baví práca s elektronikou a chcel som si vyskúšať reálny projekt. Tešil som sa na praktické využitie teórie namiesto sedenia v lavici. Očakával som viac fantázie a voľnosti pri návrhoch, nie len presný návod, čo máme spraviť.",
   },
+  {
+    name: "Jaroslav Šubjak",
+    year: "",
+    field: "",
+    role: "Elektronika",
+    initials: "JŠ",
+    responsibilities: "Elektronické zapojenie a systémy formuly",
+    expectations: "",
+  },
+  {
+    name: "Matej Gec",
+    year: "",
+    field: "",
+    role: "Stavanie + elektronika",
+    initials: "MG",
+    responsibilities: "Mechanická stavba a elektronické systémy",
+    expectations: "",
+  },
+  {
+    name: "Dávid Mušitz",
+    year: "",
+    field: "",
+    role: "Stavanie",
+    initials: "DM",
+    responsibilities: "Mechanická stavba a montáž formuly",
+    expectations: "",
+  },
+  {
+    name: "Peter Krupka",
+    year: "",
+    field: "",
+    role: "Fotografovanie",
+    initials: "PK",
+    responsibilities: "Fotodokumentácia priebehu projektu",
+    expectations: "",
+  },
 ]
 
 export function TeamIntro() {
@@ -45,7 +81,7 @@ export function TeamIntro() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
           {teamMembers.map((member, index) => (
             <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm">
               <CardHeader className="text-center pt-8 pb-4">
@@ -73,7 +109,7 @@ export function TeamIntro() {
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
-            {teamMembers.map((member, index) => (
+            {teamMembers.filter(m => m.expectations).map((member, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="bg-white/80 backdrop-blur-sm rounded-3xl border border-white/40 shadow-md px-6">
                 <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-purple-600">
                   <div className="flex items-center gap-3">

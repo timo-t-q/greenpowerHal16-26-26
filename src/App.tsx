@@ -1,6 +1,5 @@
 import { Hero } from './components/Hero';
 import { TeamIntro } from './components/TeamIntro';
-import { Team } from './components/Team';
 import { Planning } from './components/Planning';
 import { Progress } from './components/Progress';
 import { GreenpowerProjects } from './components/GreenpowerProjects';
@@ -14,7 +13,6 @@ export default function App() {
       <Navigation />
       <Hero />
       <TeamIntro />
-      <Team />
       <Planning />
       <Progress />
       <GreenpowerProjects />

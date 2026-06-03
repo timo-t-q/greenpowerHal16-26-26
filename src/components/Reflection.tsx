@@ -113,17 +113,17 @@ export function Reflection() {
           </div>
 
           <Tabs defaultValue="0" className="w-full">
-            <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent mb-8">
+            <TabsList className="grid grid-cols-1 sm:grid-cols-3 gap-2 bg-transparent mb-8 max-w-2xl mx-auto">
               {individualReflections.map((member, index) => (
                 <TabsTrigger
                   key={index}
                   value={String(index)}
-                  className="px-6 py-3 bg-white/70 backdrop-blur-sm rounded-full shadow-sm border border-white/40 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-blue-400 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300"
+                  className="group flex flex-col items-center gap-2 px-4 py-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-sm border border-purple-100 data-[state=active]:bg-gradient-to-br data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-purple-200 data-[state=active]:border-transparent transition-all duration-300 hover:shadow-md"
                 >
-                  <div className="w-6 h-6 bg-white/30 rounded-full flex items-center justify-center text-xs font-bold mr-2">
-                    {member.initials}
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-xl flex items-center justify-center group-data-[state=active]:bg-white/20">
+                    <span className="text-white font-bold text-sm">{member.initials}</span>
                   </div>
-                  {member.name}
+                  <div className="text-sm font-semibold">{member.name}</div>
                 </TabsTrigger>
               ))}
             </TabsList>
