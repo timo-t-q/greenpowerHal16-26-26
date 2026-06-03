@@ -20,7 +20,7 @@ const teamMembers = [
     role: "Manažér",
     initials: "DK",
     responsibilities: "Manažment projektu telemetrie (eChook), zber a vyhodnotenie dát, koordinácia meraní",
-    expectations: "Žiadne očakávania som nemal od začiatku od Šepeka ani od tímu... Chcel som sa naučiť niečo nové.",
+    expectations: "Chcel som sa naučiť niečo nové.",
   },
   {
     name: "Benjamín Zajko",
