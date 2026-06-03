@@ -71,9 +71,9 @@ const teamMembers = [
 
 export function TeamIntro() {
   return (
-    <section id="tim" className="py-20 px-4 bg-gradient-to-b from-purple-50 to-blue-50">
+    <section id="tim" className="py-24 px-4 bg-gradient-to-b from-purple-50 to-blue-50">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">1. Predstavenie tímu a ciele tímu</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full mb-6"></div>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -81,10 +81,10 @@ export function TeamIntro() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-24">
           {teamMembers.map((member, index) => (
             <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm">
-              <CardHeader className="text-center pt-8 pb-4">
+              <CardHeader className="text-center pt-10 pb-6">
                 <Avatar className="w-24 h-24 mx-auto mb-4 border-2 border-purple-200">
                   <AvatarFallback className="text-2xl bg-gradient-to-br from-purple-400 to-blue-400 text-white font-semibold">
                     {member.initials}
@@ -93,7 +93,7 @@ export function TeamIntro() {
                 <CardTitle className="text-xl text-gray-900">{member.name}</CardTitle>
                 <CardDescription className="text-purple-600 font-medium">{member.role}</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-3 text-sm text-gray-600">
+              <CardContent className="space-y-3 text-sm text-gray-600 px-6 pb-10">
                 <p><span className="font-medium text-gray-800">Ročník:</span> {member.year}</p>
                 <p><span className="font-medium text-gray-800">Odbor:</span> {member.field}</p>
                 <p><span className="font-medium text-gray-800">Zodpovedný za:</span> {member.responsibilities}</p>

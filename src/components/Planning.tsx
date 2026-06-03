@@ -77,16 +77,14 @@ export function Planning() {
             {finalGoals.map((project, index) => (
               <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-purple-100">
                 <h4 className="text-lg font-bold text-gray-900 mb-4">{project.project}</h4>
-                <ol className="space-y-2">
+                <ul className="space-y-2.5">
                   {project.goals.map((goal, gIndex) => (
                     <li key={gIndex} className="flex items-start gap-3 text-sm text-gray-700">
-                      <span className="w-7 h-7 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5 shadow-md shadow-purple-200">
-                        {gIndex + 1}
-                      </span>
-                      <span className="pt-0.5">{goal}</span>
+                      <span className="w-2 h-2 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full shrink-0 mt-2 shadow-sm shadow-purple-200"></span>
+                      <span>{goal}</span>
                     </li>
                   ))}
-                </ol>
+                </ul>
               </div>
             ))}
           </div>
