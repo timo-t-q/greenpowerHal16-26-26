@@ -3,7 +3,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Hero() {
   return (
-    <section id="domov" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="domov" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-24">
       {/* Background Image */}
       <div className="absolute inset-0">
         <ImageWithFallback

@@ -11,7 +11,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="kontakt" className="py-20 px-4 bg-gradient-to-br from-purple-400 to-blue-400 text-white">
+    <section id="kontakt" className="py-20 px-4 bg-gradient-to-br from-purple-400 to-blue-400 text-white scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl mb-4">Kontakt</h2>

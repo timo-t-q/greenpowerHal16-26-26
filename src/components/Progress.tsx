@@ -85,7 +85,7 @@ const milestones = [
 
 export function Progress() {
   return (
-    <section id="priebeh" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+    <section id="priebeh" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">3. Priebeh projektu</h2>

@@ -73,7 +73,7 @@ const teamMembers = [
 
 export function TeamIntro() {
   return (
-    <section id="tim" className="py-24 px-4 bg-gradient-to-b from-purple-50 to-blue-50">
+    <section id="tim" className="py-24 px-4 bg-gradient-to-b from-purple-50 to-blue-50 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">1. Predstavenie tímu a ciele tímu</h2>
@@ -82,6 +82,14 @@ export function TeamIntro() {
             Táto časť zachytáva počiatočné nastavenie tímu – kto sme, aké máme roly a s akými očakávaniami sme do projektu vstupovali.
           </p>
         </div>
+
+        <figure className="mb-20 max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-lg border border-white/40">
+          <img
+            src="praca.jpg"
+            alt="Členovia tímu pri práci na formule"
+            className="w-full h-72 md:h-96 object-cover"
+          />
+        </figure>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-24">
           {teamMembers.map((member, index) => (

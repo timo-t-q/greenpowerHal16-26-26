@@ -9,7 +9,10 @@ const projectData = [
     icon: BarChart3,
     title: "Projekt 1 – Zber a vyhodnotenie dát",
     type: "Riešenie založené na meraní dát a aplikácii teórie",
-    photos: [{ src: "echook.jpg", caption: "Riadiaca doska telemetrie eChook" }],
+    photos: [
+      { src: "echook.jpg", caption: "Riadiaca doska telemetrie eChook" },
+      { src: "motor.jpg", caption: "Motor, batéria a riadiaca elektronika formuly" },
+    ],
     focus: {
       params: "Zlepšenie parametrov: monitorovanie rýchlosti, stavu batérie a ďalších prevádzkových veličín v reálnom čase. Chceme získať presné dáta z jazdy pre lepšie pochopenie správania formuly na trati.",
       theory: "Riešenie sa opiera o poznatky z fyziky (meranie rýchlosti, elektrického prúdu a napätia), informatiky (spracovanie a prenos dát) a elektrotechniky (zapojenie senzorov a mikrokontrolérov). Využívame princípy telemetrie – bezdrôtového prenosu údajov z vozidla do domovskej stanice.",
@@ -73,7 +76,7 @@ export function GreenpowerProjects() {
   const project = projectData.find((p) => p.id === active)!
 
   return (
-    <section id="greenpower" className="py-20 px-4 bg-gradient-to-b from-purple-50 to-blue-50">
+    <section id="greenpower" className="py-20 px-4 bg-gradient-to-b from-purple-50 to-blue-50 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">4. Greenpower Engineering</h2>

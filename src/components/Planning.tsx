@@ -37,7 +37,7 @@ const finalGoals = [
 
 export function Planning() {
   return (
-    <section id="planovanie" className="py-20 px-4 bg-gradient-to-b from-blue-50 to-purple-50">
+    <section id="planovanie" className="py-20 px-4 bg-gradient-to-b from-blue-50 to-purple-50 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">2. Plánovanie projektu a adaptácia plánu</h2>
