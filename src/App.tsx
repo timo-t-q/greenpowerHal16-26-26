@@ -1,4 +1,5 @@
 import { Hero } from './components/Hero';
+import { Formula } from './components/Formula';
 import { TeamIntro } from './components/TeamIntro';
 import { Planning } from './components/Planning';
 import { Progress } from './components/Progress';
@@ -12,6 +13,7 @@ export default function App() {
     <div className="min-h-screen bg-white">
       <Navigation />
       <Hero />
+      <Formula />
       <TeamIntro />
       <Planning />
       <Progress />
