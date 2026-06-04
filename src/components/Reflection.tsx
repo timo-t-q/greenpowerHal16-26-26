@@ -34,6 +34,14 @@ const individualReflections = [
     challenge: "Najväčšia výzva bola dať tím dokopy – lepšie sa pracuje, keď sme aspoň piati, ako keď som tam sám alebo dvaja. Z konkrétnych vecí bolo najviac otravné lepenie karosérie na konci a osádzanie milióna skrutiek, hlavne keď to niekto dal zle a musel som to po nich vytahovať a meniť.",
     takeaway: "Do budúcnosti si odnášam skvelý experience, ktorý bude krásne vyzerať na CV-čku, ale aj priateľstvá a lepšie vzťahy s ostatnými.",
   },
+  {
+    name: "Marek Procházka",
+    initials: "MP",
+    role: "Dizajnér karosérie",
+    learnings: "Naučil som sa navrhovať karosériu s ohľadom na aerodynamiku a vyrobiteľnosť, a pochopil som, ako dizajn ovplyvňuje výkon celého vozidla.",
+    challenge: "Nájsť rovnováhu medzi estetickým tvarom a funkčnými požiadavkami – karoséria musela byť efektívna, no zároveň reálne vyrobiteľná.",
+    takeaway: "Schopnosť uvažovať o dizajne ako o technickom riešení a skúsenosť s prácou v tíme na reálnom projekte.",
+  },
 ]
 
 export function Reflection() {

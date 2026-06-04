@@ -87,6 +87,15 @@ const teamMembers = [
     responsibilities: "Projekt zberu a spracovania dát",
     expectations: "",
   },
+  {
+    name: "Marek Procházka",
+    year: "",
+    field: "Informačné a sieťové technológie",
+    role: "Dizajnér karosérie",
+    initials: "MP",
+    responsibilities: "Návrh a realizácia karosérie formuly",
+    expectations: "",
+  },
 ]
 
 export function TeamIntro() {
