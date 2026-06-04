@@ -69,6 +69,24 @@ const teamMembers = [
     responsibilities: "Fotodokumentácia priebehu projektu",
     expectations: "",
   },
+  {
+    name: "Timo Tipary",
+    year: "",
+    field: "",
+    role: "Web vývojár",
+    initials: "TT",
+    responsibilities: "Vývoj a správa webového portfólia nášho tímu",
+    expectations: "",
+  },
+  {
+    name: "Martin Šenkýr",
+    year: "",
+    field: "",
+    role: "Dátový analytik",
+    initials: "MŠ",
+    responsibilities: "Projekt zberu a spracovania dát",
+    expectations: "",
+  },
 ]
 
 export function TeamIntro() {
